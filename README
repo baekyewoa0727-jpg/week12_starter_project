@@ -1,6 +1,58 @@
 22400330 백예원
 
+
+[코드 분석]
+1. project structure : 
+app.jsx - 메인 컴포넌트로 4개의 alb 컴포넌트를 화면으로 불러오는 역할을 한다. 화면의 전체적인 구조를 관리
 LAB 1: useEffect를 setinterval로 1초마다 숫자가 증가
 LAB 2: useEffect가 타이머의 시작과 종료를 관리
 LAB 3: useRef를 이용해 dom에 접근. focus . clear기능 구현
 LAB 4: useRef에 타이머 ID를 저장, 함수로 직접 시작과 종료를 관리
+
+2. useEffect : component 렌더링 후 특정 작업 실행시 사용하는 훅. 외부 시스템과 연결하거나 타이머,이벤트 등을 관리할때 사용한다 
+Effect - 컴포넌트 렌더링 이후 실행  (lab1 화면이 켜지면 setInterval을 이용해 1초마다 숫자를 증가시킴)
+[] - 컴포넌트가 처음 마운트 될때
+[running] - 값이 변경될때 
+cleanup - effect에서 실행한 작업을 그만둘때 사용하는 함수.불필요한 작업의 실행을 방지
+3. useRef : 컴포넌트가 다시 렌더링 되어도 값이 날아가지 않고 유지되도록 저장하는 훅 
+.current - 값을 저장하고 객체의 속성으로 저장된 값에 접ㄱ근 가능 (LAB3)
+4. Code analysis : 
+useState - 화면에 표시되는 상태 관리, 컴포넌트 재 렌더링. 
+useRef  -  값 / dom 참조, 컴포넌트 재렌더링하지 않음
+
+
+[Lab 비교분석]
+useEffect의 Dependency Array가 필요한 이유는?
+A : Dependency Array는 Effect 기능 실행을 결정하기 위해 사용됨. 
+[] , [running] , 없음
+처음 마운트 될 때, 러닝 값이 변할 때, 렌더링 될 때 마다 
+
+
+Cleanup을 사용하지 않으면 어떤 문제가 발생할 수 있는가?
+A: 필요없는 기능이 실행될 수 있다. 중복 실행으로 성능 저하될 수 있다
+useState와 useRef의 가장 중요한 차이는?
+A: state는 값이 변경되면 재렌더링된다  화면에 표시되는 기능을 관리할때 사용
+Ref는 값이 변경되어도 재렌더링 되지 않음. 내부에서 유지하려는 값을 관리할 때 사용한다. 
+LAB 2와 LAB 4의 Timer 관리 방식은 어떻게 다른가?
+A: lab2는 running 상태가 변경되는 경우에 타이머를 시작한다
+Lab4는 타이머를 id에 저장하고 start,stop 함수로 타이머를 직접 제어가능하다
+
+
+
+Project Information: 프로젝트 소개 및 Starter Project 정보
+Installation: 설치·실행 방법 및 실행 화면
+-> 깃 클론 - 과제 주소랑 본인 포크 저장소 연결
+npm.cmd install 
+npm.cmd run dev
+
+Lab Implementation: 4개 Lab 구현 내용 및 실행 결과
+
+Customizing: 수정 내용 및 파일명
+
+
+
+Deployment: 실제 접근 가능한 Vercel URL:
+https://week12-starter-project-beige.vercel.app/
+git 
+origin : https://github.com/baekyewoa0727-jpg/week12_starter_project.git
+assign : https://github.com/2026-2-OSS/assign12-c02-22400330.git
