@@ -1,4 +1,6 @@
 22400330 백예원
 
+LAB 1: useEffect를 setinterval로 1초마다 숫자가 증가
 LAB 2: useEffect가 타이머의 시작과 종료를 관리
+LAB 3: useRef를 이용해 dom에 접근. focus . clear기능 구현
 LAB 4: useRef에 타이머 ID를 저장, 함수로 직접 시작과 종료를 관리
